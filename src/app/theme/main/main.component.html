@@ -1,6 +1,7 @@
 <div class="container">
+  <button (click) ="Crear()">Crear</button>
     <div class="row">
-      <div class="col-12">
+      <div class="col-6">
         <table class="table">
             <thead>
               <tr>
@@ -20,6 +21,12 @@
              
             </tbody>
           </table>
+      </div>
+      <div class="col-6">
+        <form>
+          <input type="text" name="name" [(ngModel)]="name" />
+          <input type="text" name="description" [(ngModel)]="description" />
+        </form>
       </div>
     </div>
     

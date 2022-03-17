@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,10 +14,13 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    FormsModule
+
   ],
   exports:[HeaderComponent, FooterComponent, MainComponent, SidenavComponent]
 })
