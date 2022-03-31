@@ -10,7 +10,7 @@ import { CountryService } from 'src/app/services/Country.service';
 })
 export class MainComponent implements OnInit, OnChanges, DoCheck, AfterContentChecked, AfterContentInit, AfterViewChecked, OnDestroy, AfterContentInit, AfterViewInit {
   public countries : Array<Country> = [];
-
+  public form : Country = {Id:0, Name:"", Description:"", status:true};
   public  name : string = "";
   public  description : string = "";
   ///
@@ -19,17 +19,20 @@ export class MainComponent implements OnInit, OnChanges, DoCheck, AfterContentCh
     let country1 : Country = {
       Id: 1, 
       Name : "Colombia", 
-      Description : "Colombia"
+      Description : "Colombia",
+      status : true
     };
     let country2 : Country = {
       Id: 2, 
       Name : "Argentina", 
-      Description : "Argentina"
+      Description : "Argentina",
+      status: false
     };
     let country3 : Country = {
       Id: 3, 
       Name : "Canada", 
-      Description : "Canada"
+      Description : "Canada",
+      status: true
     };
     
     this.countries.push(country1);
@@ -38,14 +41,11 @@ export class MainComponent implements OnInit, OnChanges, DoCheck, AfterContentCh
 
     let mayores = this.countries.filter(f => f.Id > 1);
     let pais3 = this.countries.find(f => f.Id == 3);
-    let c : Country = { Id: 3, 
-      Name : "Canada", 
-      Description : "Canada"};
-    if (pais3) {
-      let index = this.countries.indexOf(pais3);
-      this.countries.splice(index, 1);
-
-    }
+    let c : Country = { Id: 4, 
+      Name : "Peru", 
+      Description : "Peru",
+      status:false};
+    
     this.countries.push(c);
 
     
@@ -62,7 +62,10 @@ export class MainComponent implements OnInit, OnChanges, DoCheck, AfterContentCh
      console.log(this.name);
      
    }
-  
+   guardar(){
+     console.log("guardando");
+     
+   }
 
   //este siempre se esta ejecutando
   ngOnChanges(changes: SimpleChanges): void {
