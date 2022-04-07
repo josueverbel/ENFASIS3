@@ -7,7 +7,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
-
+import { FormArrayComponent } from './Components/form-array/form-array.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -17,12 +18,15 @@ import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.
     MainComponent,
     SidenavComponent,
     ReactiveFormComponent,
+    FormArrayComponent,
+    
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule
 
   ],
   exports:[HeaderComponent, FooterComponent, MainComponent, SidenavComponent]

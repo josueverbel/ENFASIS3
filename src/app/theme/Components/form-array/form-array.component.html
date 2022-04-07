@@ -1,0 +1,68 @@
+
+<div class="container">
+    <form [formGroup]="form"  autocomplete="off">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group m-3">
+                <input class="form-control" placeholder="Nombre del pais" type="text"  formControlName="name"
+                [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                <span
+                *ngIf="submitted && f.name.errors"
+                class="invalid-feedback"
+              >
+Error en el nombre *
+              </span>
+
+              </div>
+              
+              <div class="form-group m-3">
+              <input  class="form-control" placeholder="Descripcion del pais" type="text" formControlName="description"  [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+              
+              <span
+                *ngIf="submitted && f.description.errors?.minlength"
+                class="invalid-feedback"
+              >
+    Debe digitar al menos {{ f.description.errors?.minlength?.requiredLength }} caracteres*
+              </span>
+              <span
+                *ngIf="submitted && f.description.errors?.required"
+                class="invalid-feedback"
+              >
+Descripcion es requerida*
+              </span>
+            </div>
+            <div >
+                <button class="btn btn-primary m-3" (click)="save()"> Guardar</button>
+                <button class="btn btn-warning  m-3" (click)="clear()"> Limpiar</button>
+                <button class="btn btn-success  m-3" (click)="addArea()"> Agregar Area</button>
+            </div>
+    </div>
+    <div class="col-6">
+        <ng-container formArrayName="areas">
+            <ng-container *ngFor="let area of areas.controls ; let i = index" class="mt-3"> 
+                <mat-divider> </mat-divider>    
+                <div class="row" [formGroupName]="i">
+                    <div class="col-6">
+                        <div class="form-group m-3">
+                            <input class="form-control" placeholder="Nombre del Area" type="text"  formControlName="name">
+            
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group m-3">
+                            <input class="form-control" placeholder="Descripcion del Area" type="text"  formControlName="description">
+            
+                          </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>  
+       
+            
+       
+        
+    </div>
+</form>
+</div>
+
